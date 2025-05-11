@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Volunteer - Green Heart</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    .volunteer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 20px;
+      background-color: #f4f8f5;
+    }
+
+    .volunteer h1 {
+      font-size: 2.5rem;
+      color: #2e7d32;
+      margin-bottom: 10px;
+    }
+
+    .volunteer p {
+      max-width: 600px;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    .volunteer-form {
+      background: #fff;
+      padding: 32px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .volunteer-form input,
+    .volunteer-form textarea {
+      width: 100%;
+      padding: 12px 14px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .volunteer-form textarea {
+      resize: vertical;
+    }
+
+    .volunteer-form .btn {
+      display: inline-block;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .volunteer-form .btn:hover {
+      background-color: #388e3c;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">🌿 Green Heart</div>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/programs">Programs</a></li>
+        <li><a href="/donate">Donate</a></li>
+        <li><a href="/volunteer" class="active">Volunteer</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="volunteer">
+    <h1>Become a Volunteer</h1>
+    <p>Join our mission to empower orphans and vulnerable children by sharing your time and skills.</p>
+
+    <form class="volunteer-form" action="/volunteer" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Short message..." required></textarea>
+      <button type="submit" class="btn">Join Us</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Green Heart. All rights reserved.</p>
+  </footer>
+</body>
+</html>
