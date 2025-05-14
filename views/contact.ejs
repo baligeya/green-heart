@@ -92,6 +92,10 @@
       text-decoration: underline;
     }
 
+    .contact-form h2 {
+      margin-bottom: 15px;
+    }
+
     .contact-form input,
     .contact-form textarea {
       width: 100%;
@@ -120,6 +124,8 @@
       height: 300px;
       background-color: #ddd;
       border-radius: 10px;
+      margin: 50px auto;
+      max-width: 1200px;
     }
 
     footer {
@@ -148,6 +154,7 @@
 
   <!-- Contact Section -->
   <section class="contact-container">
+    <!-- Contact Info -->
     <div class="contact-info">
       <h1>Contact Us</h1>
       <h2>We’d love to hear from you!</h2>
@@ -177,21 +184,74 @@
     <div class="contact-form">
       <h2>Send Us a Message</h2>
       <form action="/submit-contact" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required><br>
-        <input type="email" name="email" placeholder="Your Email" required><br>
-        <textarea name="message" placeholder="Your Message" rows="6" required></textarea><br>
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
         <button type="submit">Send Message</button>
       </form>
     </div>
   </section>
 
   <!-- Map Section -->
-  
+  <div class="map-container">
+    <!-- Placeholder for a real map -->
+    <iframe
+      src="https://www.google.com/maps?q=Mukono+Uganda&output=embed"
+      width="100%"
+      height="100%"
+      frameborder="0"
+      style="border:0; border-radius:10px;"
+      allowfullscreen=""
+      loading="lazy">
+    </iframe>
+  </div>
 
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 Green Heart. All rights reserved.</p>
   </footer>
+
+  <script>
+  document.getElementById("contactForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+    const payload = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      message: formData.get("message")
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await res.json();
+      alert(result.message);
+
+      // Show WhatsApp join link if available
+      if (result.whatsappLink) {
+        const link = document.createElement("a");
+        link.href = result.whatsappLink;
+        link.textContent = "Click here to join our WhatsApp Group";
+        link.target = "_blank";
+        link.style.display = "block";
+        link.style.marginTop = "20px";
+        document.querySelector(".contact-form").appendChild(link);
+      }
+
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Something went wrong. Please try again later.");
+    }
+  });
+</script>
+
 
 </body>
 </html>
