@@ -48,9 +48,44 @@
       border: 1px solid #ccc;
       border-radius: 6px;
     }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    nav ul li a.active {
+      color: orange;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
+
+  <!-- Navigation Bar -->
   <header>
     <div class="logo">🌿 Green Heart</div>
     <nav>
@@ -60,11 +95,11 @@
         <li><a href="/programs">Programs</a></li>
         <li><a href="/donate" class="active">Donate</a></li>
         <li><a href="/contact">Contact</a></li>
-        <li><a href="/volunteer" class="active">Volunteer</a></li>
       </ul>
     </nav>
   </header>
 
+  <!-- Donation Section -->
   <section class="donate">
     <h1>Make a Difference</h1>
     <p>Choose your preferred donation method to support our mission:</p>
@@ -75,9 +110,9 @@
       <div class="method">
         <h3>📱 Mobile Money</h3>
         <img src="/images/aitel-removebg-preview.png" alt="Airtel Logo">
-        <p><strong>Airtel:</strong> *185*1*0706123456#</p>
+        <p><strong>Airtel:</strong> *185*1*0709761453#</p>
         <img src="/images/mtn-removebg-preview.png" alt="Mtn Logo">
-        <p><strong>MTN:</strong> *165*1*0778123456#</p>
+        <p><strong>MTN:</strong> *165*1*0775699411#</p>
       </div>
 
       <!-- Bank Transfer -->
@@ -85,7 +120,7 @@
         <h3>🏦 Bank Transfer</h3>
         <p><strong>Bank:</strong> Equity Bank Uganda</p>
         <p><strong>Account Name:</strong> Green Heart Foundation</p>
-        <p><strong>Account Number:</strong> 123456789012</p>
+        <p><strong>Account Number:</strong> 6007464604</p>
         <p><strong>SWIFT Code:</strong> EQBLUGKA</p>
       </div>
 
@@ -112,8 +147,10 @@
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Green Heart. All rights reserved.</p>
   </footer>
+
 </body>
 </html>

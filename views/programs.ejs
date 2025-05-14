@@ -5,45 +5,181 @@
   <title>Programs - Green Heart</title>
   <link rel="stylesheet" href="/css/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      font-family: 'Nunito', sans-serif;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .menu-toggle {
+      font-size: 1.5rem;
+      background: none;
+      color: white;
+      border: none;
+      cursor: pointer;
+      display: none;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    nav ul li a.active {
+      color: orange;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #444;
+        margin-top: 1rem;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+
+      nav ul li {
+        padding: 0.75rem;
+        border-bottom: 1px solid #555;
+      }
+
+      nav ul li a {
+        color: orange;
+      }
+    }
+
+    .programs {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .programs h1 {
+      font-size: 2rem;
+      color: #2c3e50;
+    }
+
+    .programs .intro {
+      max-width: 800px;
+      margin: 1rem auto;
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    .info-grid {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .info-card {
+      background-color: #f9f9f9;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      flex: 1 1 250px;
+      max-width: 300px;
+    }
+
+    .info-card h2 {
+      color: orange;
+      margin-bottom: 0.5rem;
+    }
+
+    .info-card p {
+      color: #444;
+    }
+
+    footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
   <!-- Navigation Bar -->
   <header>
     <div class="logo">🌿 Green Heart</div>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
     <nav>
-      <ul>
+      <ul id="navLinks">
         <li><a href="/">Home</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/programs" class="active">Programs</a></li>
         <li><a href="/donate">Donate</a></li>
         <li><a href="/contact">Contact</a></li>
-        <li><a href="/volunteer">Volunteer</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- Programs Section -->
   <section class="programs">
-    <h1>🌟 Our Programs</h1>
+    <h1>Our Programs</h1>
     <p class="intro">
-      At Green Heart, we implement life-changing initiatives to uplift orphans and vulnerable children. Each program 
-      is designed to address core needs — education, health, and emergency support.
+      At Green Heart, we focus on providing impactful programs that help uplift orphans and vulnerable children.
+      These initiatives are designed to address key areas such as education, healthcare, and emergency support.
     </p>
 
-    <div class="program-cards">
-      <div class="program-card">
+    <div class="info-grid">
+      <div class="info-card">
         <h2>📚 Education Support</h2>
-        <p>We offer scholarships, school supplies, and mentorship to ensure every child receives the opportunity to learn and succeed.</p>
+        <p>
+          We provide scholarships, school supplies, and mentorship to help every child access the education they deserve.
+        </p>
       </div>
 
-      <div class="program-card">
+      <div class="info-card">
         <h2>🍎 Health & Nutrition</h2>
-        <p>From daily meals to medical check-ups, our health initiatives are built to promote long-term well-being and growth.</p>
+        <p>
+          Our health programs focus on providing nutritious meals, medical care, and promoting overall well-being for children.
+        </p>
       </div>
 
-      <div class="program-card">
+      <div class="info-card">
         <h2>🚨 Emergency Relief</h2>
-        <p>In times of crisis, we provide essential aid like food, shelter, and clothing to families and children in immediate need.</p>
+        <p>
+          During times of crisis, we provide essential aid such as food, shelter, and clothing to children and families in need.
+        </p>
       </div>
     </div>
   </section>
@@ -52,5 +188,13 @@
   <footer>
     <p>&copy; 2025 Green Heart. All rights reserved.</p>
   </footer>
+
+  <!-- Scripts -->
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.toggle('show');
+    }
+  </script>
 </body>
 </html>

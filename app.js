@@ -10,14 +10,9 @@ app.set('view engine', 'ejs');
 // Set public folder for static assets
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Routes
-const volunteerRoutes = require('./routes/volunteer');
-app.use('/volunteer', volunteerRoutes);
-
 app.get('/', (req, res) => {
   res.render('index'); // Home page
-});
-
+});        
 app.get('/about', (req, res) => {
   res.render('about');
 });

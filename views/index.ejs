@@ -7,19 +7,116 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+  <style>
+    /* Responsive Navbar */
+    header {
+      background-color: #333;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .menu-toggle {
+      font-size: 1.5rem;
+      background: none;
+      color: white;
+      border: none;
+      cursor: pointer;
+      display: none;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    nav ul li a.active {
+      color: orange;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #444;
+        margin-top: 1rem;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+
+      nav ul li {
+        padding: 0.75rem;
+        border-bottom: 1px solid #555;
+      }
+
+      nav ul li a {
+        color: orange;
+      }
+    }
+
+    /* Donate Button */
+    .btn {
+      background-color: orange;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      background-color: darkorange;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      background-color: rgba(61, 53, 53, 0.5);
+      padding: 2rem;
+      border-radius: 10px;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
   <!-- Navigation Bar -->
   <header>
     <div class="logo">🌿 Green Heart</div>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
     <nav>
-      <ul>
+      <ul id="navLinks">
         <li><a href="/">Home</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/programs">Programs</a></li>
         <li><a href="/donate">Donate</a></li>
         <li><a href="/contact">Contact</a></li>
-        <li><a href="/volunteer" class="active">Volunteer</a></li>
       </ul>
     </nav>
   </header>
@@ -32,7 +129,7 @@
       <img src="/images/pic33.jpg" class="slide">
       <img src="/images/pic55.jpg" class="slide">
       <div class="hero-overlay">
-        <h1>Support Orphans, Change Lives</h1>
+        <h1 style="color: orange; font-weight: bold; font-style: italic;">Support Orphans, Change Lives</h1>
         <p>Your kindness brings hope, food, and education to vulnerable children.</p>
         <a href="/donate" class="btn">Donate Now</a>
       </div>
@@ -43,12 +140,9 @@
   <section class="welcome">
     <h2>Welcome to Green Heart</h2>
     <p>
-      Green Heart is a nonprofit organization dedicated to supporting orphans and underprivileged children. 
-      We strive to provide essentials such as nutritious food, quality education, healthcare, and a nurturing environment. 
-      By working together, we can bring lasting change to their lives and empower them to build a brighter future. 
-      Join us in making a meaningful difference.
-    </p>
-    
+  Green Heart is a nonprofit dedicated to supporting orphans and underprivileged children by providing essentials like food, education, healthcare, and a supportive environment. Together, we can empower them to build a brighter future. Join us in making a difference.
+</p>
+
   </section>
 
   <!-- Mission & Vision Section -->
@@ -97,6 +191,12 @@
   </footer>
 
   <!-- Scripts -->
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.toggle('show');
+    }
+  </script>
   <script src="/js/carousel.js"></script>
   <script src="/js/scrollReveal.js"></script>
 </body>
